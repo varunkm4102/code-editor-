@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code editor</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <script src="script.js"></script> -->
+  </head>
+  <body>
+    <h1>Code Editor</h1>
+    <div class="container">
+      <div class="left">
+       <div class="section">
+        <label
+        >HTML :
+        <img
+          src="https://clipartcraft.com/images/html5-logo-circle.png"
+          alt=""
+      /></label>
+      <textarea name="" id="html-code" onkeyup="run()"></textarea>
+       </div>
+       <div class="section">
+        <label
+        >CSS :
+        <img
+          src="https://th.bing.com/th/id/R.987a1fc5097eb921938e061576facb44?rik=d2fFmCLKQrg3QA&riu=http%3a%2f%2fwww.fm-studio.net%2fimages%2fhtml5bn.png&ehk=Lgn2QWc%2bUryGLSUS4I9pI0BzL%2bUAP%2bo33SSHMGqTZsY%3d&risl=&pid=ImgRaw&r=0"
+      /></label>
+      <textarea name="" id="css-code" onkeyup="run()"></textarea>
+       </div>
+        <div class="section">
+          <label
+          >JAVASCRIPT :
+          <img
+            src="https://th.bing.com/th/id/OIP.tZMjoxXC672n171nfUKJaQAAAA?pid=ImgDet&rs=1"
+            alt=""
+          />
+        </label>
+        <textarea name="" id="js-code" onkeyup="run()"></textarea>
+        </div>
+      </div>
+      <div class="right">
+        <iframe id="output"></iframe>
+      </div>
+    </div>
+
+    <script>
+      function run() {
+        let htmlCode = document.getElementById("html-code").value;
+        let cssCode = document.getElementById("css-code").value;
+        let jsCode = document.getElementById("js-code").value;
+        let output = document.getElementById("output");
+
+        output.contentDocument.body.innerHTML =
+          htmlCode + "<style>" + cssCode + "</style>";
+        output.contentWindow.eval(jsCode);
+      }
+    </script>
+  </body>
+</html>
